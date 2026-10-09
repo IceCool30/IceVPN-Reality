@@ -1,0 +1,20 @@
+[Unit]
+Description=IceVPN BTCPay payment webhook (auto-renew)
+After=network.target
+
+[Service]
+Type=simple
+# Put your real secrets in /etc/icevpn/webhook.env (chmod 600), NOT here.
+EnvironmentFile=-/etc/icevpn/webhook.env
+WorkingDirectory=/opt/IceVPN-Reality/webhook
+ExecStart=/usr/bin/python3 /opt/IceVPN-Reality/webhook/webhook_server.py
+Restart=on-failure
+RestartSec=5
+# Hardening: no new privileges, private tmp, read-only where possible.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target

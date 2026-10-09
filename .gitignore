@@ -11,6 +11,13 @@ secrets/
 x-ui.db
 x-ui.db.*
 
+# --- webhook secrets ---
+webhook/*.env
+webhook.env
+/etc/icevpn/webhook.env
+*btcpay*secret*
+*.sig
+
 # --- Local state / logs ---
 *.log
 *.tmp

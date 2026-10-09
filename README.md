@@ -25,6 +25,15 @@ it does NOT beat IP-reputation blocks like Netflix.
 | `docs/reality-inbound.md` | Exact panel steps to create the VLESS+REALITY inbound. |
 | `docs/cost-and-limits.md` | Cost and user limits. |
 | `config/oci-firewall-guide.md` | The exact ports, and the two-layer firewall trap. |
+| `webhook/` | BTCPay payment webhook that auto-renews users on settled crypto payments. |
+
+## Optional: auto-renew on crypto payment
+
+The `webhook/` folder closes the freemium loop. When a crypto payment settles in
+your self-hosted BTCPay Server, it calls the webhook, which verifies the payment
+signature and runs `tier-manager.sh renew <user>` automatically. See
+`webhook/README.md`. This is why BTCPay and not Stripe: card processors freeze
+VPN accounts, BTCPay is self-hosted crypto and cannot.
 
 ## Prerequisites
 
