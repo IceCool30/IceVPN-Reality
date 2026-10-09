@@ -1,0 +1,23 @@
+# --- SECRETS: never commit these ---
+# The panel URL (contains a secret path) and the API token are root-level
+# secrets. Anyone with them controls your whole proxy. Keep them out of git.
+*.env
+.env
+.env.*
+!.env.example
+secrets/
+*panel-url*
+*api-token*
+x-ui.db
+x-ui.db.*
+
+# --- Local state / logs ---
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# --- Editor / OS ---
+.vscode/
+.idea/
+*.swp
